@@ -1,12 +1,17 @@
 // Global variables
 // Assignment Code
-var generateBtn = document.querySelector("#generate");
-var hasNumbers = ""
-var hasLowercase = ""
-var hasUppercase = ""
-var hasSpecialChars = ""
-var pwLength = ""
+//var generateBtn = document.querySelector("#generate");
 
+var numbers = "0123456789";
+var lowercase = "abcdefghijklmnopqrstuvwxyz";
+var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var specialChars = "!'*+,-./:;<=>?@\^_";
+
+var hasNumbers = "";
+var hasLowercase = "";
+var hasUppercase = "";
+var hasSpecialChars = "";
+var pwLength = "";
 
 // Functions
 // Write password to the #password input
@@ -29,14 +34,29 @@ function writePassword() {
 
 }
 
+// Generator functions
+// get random numbers from string:
+function getRandomNumbers(x) {
+  randomNumber = "";
+  for (var i = 0; i <= x; i++) {
+    randomNumber += numbers.charAt(Math.floor(Math.random() * numbers.length));
+  }
+  return randomNumber;
+}
+
+// Get random lowers:
+function getRandomLowers() {
+
+}
+
 function generatePassword() {
   // TODO: Put password code here
-  
+
 
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+//generateBtn.addEventListener("click", writePassword);
 
 
 //When button is clicked, a series of prompts pop up for password criteria
@@ -46,3 +66,6 @@ console.log(hasLowercase);
 console.log(hasUppercase);
 console.log(hasSpecialChars);
 console.log(pwLength);
+console.log(String.fromCharCode(97, 122));
+console.log(numbers.charAt(5));
+console.log(getRandomNumbers(6));

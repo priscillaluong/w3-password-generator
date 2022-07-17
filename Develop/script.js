@@ -1,6 +1,6 @@
 // Global variables
 // Assignment Code
-//var generateBtn = document.querySelector("#generate");
+var generateBtn = document.querySelector("#generate");
 
 var numbers = "0123456789";
 var lowercase = "abcdefghijklmnopqrstuvwxyz";
@@ -22,11 +22,13 @@ var randomSpecialChars = "";
 // Write password to the #password input
 function writePassword() {
   // alert user with prompts when button is clicked
-  pwLength = window.prompt("Length of password: ");
+  /// + behind the window.prompt changes the typeof from a string to a number
+  pwLength = +window.prompt("Length of password: ");
   //check is pw length is between 8 and 129 chars
   while (pwLength < 8 || pwLength > 130) {
-    pwLength = window.prompt("Password must be at least 8 characters and no more than 128 characters. Please enter length of password: ");
+    pwLength = +window.prompt("Password must be at least 8 characters and no more than 128 characters. Please enter length of password: ");
   };
+  //console.log(typeof pwLength);
   hasNumbers = window.confirm("Does the password include numbers?");
   hasLowercase = window.confirm("Does the password include lowercase letters?");
   hasUppercase = window.confirm("Does the password include uppercase letters?");
@@ -38,6 +40,13 @@ function writePassword() {
   passwordText.value = password;
 
 }
+
+randomFunc = {
+  number: getRandomNumbers,
+  lower: getRandomLowers,
+  upper: getRandomUppers,
+  special: getRandomSpecialChars
+};
 
 // Generator functions
 // get random numbers from string:
@@ -70,7 +79,9 @@ function getRandomSpecialChars(x) {
     randomSpecialChars += specialChars.charAt(Math.floor(Math.random() * specialChars.length));
   }
   return randomSpecialChars;
-}
+} 
+// Below returns ONE random special character
+//var randomSpecialChars = specialChars.charAt(Math.floor(Math.random() * specialChars.length));
 
 function generatePassword() {
   // TODO: Put password code here
@@ -79,7 +90,7 @@ function generatePassword() {
 }
 
 // Add event listener to generate button
-//generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", writePassword);
 
 
 //When button is clicked, a series of prompts pop up for password criteria
@@ -94,4 +105,4 @@ console.log(numbers.charAt(5));
 console.log(getRandomNumbers(6));
 console.log(getRandomLowers(6));
 console.log(getRandomUppers(6));
-console.log(getRandomSpecialChars(6));
+console.log(randomSpecialChars);

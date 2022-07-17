@@ -13,6 +13,11 @@ var hasUppercase = "";
 var hasSpecialChars = "";
 var pwLength = "";
 
+var randomNumbers = "";
+var randomLowercase = "";
+var randomUppercase = "";
+var randomSpecialChars = "";
+
 // Functions
 // Write password to the #password input
 function writePassword() {
@@ -37,16 +42,34 @@ function writePassword() {
 // Generator functions
 // get random numbers from string:
 function getRandomNumbers(x) {
-  randomNumber = "";
   for (var i = 0; i <= x; i++) {
-    randomNumber += numbers.charAt(Math.floor(Math.random() * numbers.length));
+    randomNumbers += numbers.charAt(Math.floor(Math.random() * numbers.length));
   }
-  return randomNumber;
+  return randomNumbers;
 }
 
 // Get random lowers:
-function getRandomLowers() {
+function getRandomLowers(x) {
+  for (var i = 0; i <= x; i++) {
+    randomLowercase += lowercase.charAt(Math.floor(Math.random() * lowercase.length));
+  }
+  return randomLowercase;
+}
 
+// Get random uppers:
+function getRandomUppers(x) {
+  for (var i = 0; i <= x; i++) {
+    randomUppercase += uppercase.charAt(Math.floor(Math.random() * uppercase.length));
+  }
+  return randomUppercase;
+}
+
+// Get random special chars:
+function getRandomSpecialChars(x) {
+  for (var i = 0; i <= x; i++) {
+    randomSpecialChars += specialChars.charAt(Math.floor(Math.random() * specialChars.length));
+  }
+  return randomSpecialChars;
 }
 
 function generatePassword() {
@@ -69,3 +92,6 @@ console.log(pwLength);
 console.log(String.fromCharCode(97, 122));
 console.log(numbers.charAt(5));
 console.log(getRandomNumbers(6));
+console.log(getRandomLowers(6));
+console.log(getRandomUppers(6));
+console.log(getRandomSpecialChars(6));

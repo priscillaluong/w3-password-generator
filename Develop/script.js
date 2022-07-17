@@ -35,50 +35,58 @@ function writePassword() {
   hasUppercase = window.confirm("Does the password include uppercase letters?");
   hasSpecialChars = window.confirm("Does the password include special characters?");
   
-  //generatePassword(hasNumbers, hasLowercase, hasUppercase, hasSpecialChars, pwLength)
-
-  var password = generatePassword();
-
   var passwordText = document.querySelector("#password");
-  passwordText.value = password;
+  //passwordText.value = password;
+
+  passwordText.value = test(hasNumbers, hasLowercase, hasUppercase, hasSpecialChars, pwLength);
+
+/*   var password = generatePassword(
+    hasNumbers,
+    hasLowercase,
+    hasUppercase,
+    hasSpecialChars,
+    pwLength
+  );
+ */
 }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+//TEST FUNCTION
 
-function generatePassword(number, lower, upper, special, pwLength) {
-  // TODO: Put password code here
+function test (number, lower, upper, special, pwLength) {
   // 1. Initialise pw variable
   // 2. Filter out user selection
   // 3. Loop over length, call generator functions
   // 4. Add final password to password variable and return
-  var generatedPassword = "";
+  let generatedPassword = "";
   const typesCount = number + lower + upper + special;
-  //console.log(typesCount);
+  console.log('types count: ', typesCount);
   //.filter method is used to filter through anything that is false
   const typesArr = [{number}, {lower}, {upper}, {special}].filter
   (
     item => Object.values(item)[0]
   );
-  //console.log(typesArr);
+  console.log('typesArr: ', typesArr);
   //if user values return false, we generate/return nothing
   if(typesCount === 0) {
     return "";
   }
-
-  for(i = 0; i < pwLength; i += typesCount) {
+  //loop over length
+  for(let i = 0; i < pwLength; i += typesCount) {
     //.foreach method calls a function for each element in an array
     typesArr.forEach(type => {
-      const funcName = Object.keys[type][0];
-      //console.log(funcName);
+      const funcName = Object.keys(type)[0];
+      console.log('funcName: ', funcName)
+
       generatedPassword += randomFunc[funcName]();
     });
   }
   console.log(generatedPassword);
-
   const finalPassword = generatedPassword.slice(0,pwLength);
   return finalPassword;
 }
+
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
 
 randomFunc = {
   number: getRandomNumbers,
@@ -89,38 +97,56 @@ randomFunc = {
 
 // Generator functions
 // get random numbers from string:
-function getRandomNumbers(x) {
+/* function getRandomNumbers(x) {
   for (var i = 0; i <= x; i++) {
     randomNumbers += numbers.charAt(Math.floor(Math.random() * numbers.length));
   }
   return randomNumbers;
-}
+} */
+// one random number
+function getRandomNumbers() {
+  numbers.charAt(Math.floor(Math.random() * numbers.length));
+} 
 
 // Get random lowers:
-function getRandomLowers(x) {
+/* function getRandomLowers(x) {
   for (var i = 0; i <= x; i++) {
     randomLowercase += lowercase.charAt(Math.floor(Math.random() * lowercase.length));
   }
   return randomLowercase;
+} */
+//get one random lower:
+function getRandomLowers() {
+  lowercase.charAt(Math.floor(Math.random() * lowercase.length));
 }
 
+
 // Get random uppers:
-function getRandomUppers(x) {
+/* function getRandomUppers(x) {
   for (var i = 0; i <= x; i++) {
     randomUppercase += uppercase.charAt(Math.floor(Math.random() * uppercase.length));
   }
   return randomUppercase;
+} */
+
+//get one random upper:
+function getRandomUppers() {
+  uppercase.charAt(Math.floor(Math.random() * uppercase.length));
 }
 
 // Get random special chars:
-function getRandomSpecialChars(x) {
+/* function getRandomSpecialChars(x) {
   for (var i = 0; i <= x; i++) {
     randomSpecialChars += specialChars.charAt(Math.floor(Math.random() * specialChars.length));
   }
   return randomSpecialChars;
-} 
+}  */
+
 // Below returns ONE random special character
-//var randomSpecialChars = specialChars.charAt(Math.floor(Math.random() * specialChars.length));
+function getRandomSpecialChars() {
+  specialChars.charAt(Math.floor(Math.random() * specialChars.length));
+}
+
 
 //When button is clicked, a series of prompts pop up for password criteria
 
@@ -131,7 +157,6 @@ console.log(hasSpecialChars);
 console.log(pwLength);
 console.log(String.fromCharCode(97, 122));
 console.log(numbers.charAt(5));
-console.log(getRandomNumbers(6));
-console.log(getRandomLowers(6));
-console.log(getRandomUppers(6));
-console.log(randomSpecialChars);
+console.log(getRandomNumbers);
+/* console.log(getRandomLowers(6));
+console.log(getRandomUppers(6)); */

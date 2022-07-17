@@ -105,7 +105,8 @@ randomFunc = {
 } */
 // one random number
 function getRandomNumbers() {
-  numbers.charAt(Math.floor(Math.random() * numbers.length));
+  randomNumbers = numbers.charAt(Math.floor(Math.random() * numbers.length));
+  return randomNumbers;
 } 
 
 // Get random lowers:
@@ -117,7 +118,8 @@ function getRandomNumbers() {
 } */
 //get one random lower:
 function getRandomLowers() {
-  lowercase.charAt(Math.floor(Math.random() * lowercase.length));
+  randomLowercase = lowercase.charAt(Math.floor(Math.random() * lowercase.length));
+  return randomLowercase;
 }
 
 
@@ -131,7 +133,8 @@ function getRandomLowers() {
 
 //get one random upper:
 function getRandomUppers() {
-  uppercase.charAt(Math.floor(Math.random() * uppercase.length));
+  randomUppercase = uppercase.charAt(Math.floor(Math.random() * uppercase.length));
+  return randomUppercase;
 }
 
 // Get random special chars:
@@ -144,7 +147,8 @@ function getRandomUppers() {
 
 // Below returns ONE random special character
 function getRandomSpecialChars() {
-  specialChars.charAt(Math.floor(Math.random() * specialChars.length));
+  randomSpecialChars = specialChars.charAt(Math.floor(Math.random() * specialChars.length));
+  return randomSpecialChars;
 }
 
 

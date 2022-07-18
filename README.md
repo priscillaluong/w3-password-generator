@@ -99,7 +99,7 @@ Re-prompt if (pwLength < 8 || pwLength > 130):
 
 ![Application Letters Confirm Screenshot](./assets/letters.png) 
 
-N.B. Users are also asked to confirm uppercase letters and special characters, once all methods are satisfied, a password is generated in the #password text area. 
+n.b. Users are also asked to confirm uppercase letters and special characters, once all methods are satisfied, a password is generated in the #password text area. 
 
 ![Generated Password Screenshot](./assets/generated.png) 
 

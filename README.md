@@ -91,6 +91,8 @@ function generatePassword (number, lower, upper, special, pwLength) {
 
 ![Application Prompt Screenshot](./assets/length.png) 
 
+Re-prompt if (pwLength < 8 || pwLength > 130):
+
 ![Application Password Length Re-prompt Screenshot](./assets/length_reprompt.png) 
 
 ![Application Numbers Confirm Screenshot](./assets/num.png) 
@@ -103,7 +105,7 @@ There is also an alert for the user to confirm uppercase letters and special cha
 
 ## URL to Deployed Application:
 
-[Click here](https://priscillaluong.github.io/week-one-challenge/) 
+[Click here](https://priscillaluong.github.io/w3-password-generator/) 
 
 ### Final note:
 

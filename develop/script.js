@@ -65,13 +65,13 @@ function generatePassword (number, lower, upper, special, pwLength) {
   // 4. Add final password to password variable and return
   let generatedPassword = "";
   const typesCount = number + lower + upper + special;
-  console.log('types count: ', typesCount);
+  //console.log('types count: ', typesCount);
   //.filter method is used to filter through anything that is false
   const typesArr = [{number}, {lower}, {upper}, {special}].filter
   (
     item => Object.values(item)[0]
   );
-  console.log('typesArr: ', typesArr);
+  //console.log('typesArr: ', typesArr);
   //if user values return false, we generate/return nothing
   if(typesCount === 0) {
     return "";

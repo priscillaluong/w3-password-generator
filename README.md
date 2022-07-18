@@ -14,9 +14,15 @@ Acceptance Criteria:
 
 ## How I approached the task:
 
-* Broke the task down into smaller tasks - worked by focusing on how to generate a random number / letter / special char.
+* Broke the task down into smaller tasks - analysed the starter code from which I understood that used to display the generated password in the password text area on your HTML.
 
-* 
+* worked by focusing on how to generate a random number / letter / special char. Listed under the GENERATOR FUNCIONS comment: 
+
+* Worked on creating the alerts on the windows dialog box. By using the .prompt() and .confirm() methods I was able to generate a value.
+
+* Used objects with key: value 
+
+* In between this, I ran a console.log at different parts to make sure I am getting the result I need.
 
 ```
 /********************************
@@ -42,11 +48,23 @@ Acceptance Criteria:
     color: #ffffff;
 }
 ```
-## Screenshot of Application:
+## Screenshot of Deployed Application:
 
-![Deployed Application Screenshot](./assets/images/application-1.png) 
+![Deployed Application Screenshot](./assets/deployed_app.png) 
 
-![Deployed Application Screenshot](./assets/images/application-2.png) 
+## Screenshot of Application Interaction:
+
+![Application Prompt Screenshot](./assets/length.png) 
+
+![Application Password Length Re-prompt Screenshot](./assets/length_reprompt.png) 
+
+![Application Numbers Confirm Screenshot](./assets/num.png) 
+
+![Application Letters Confirm Screenshot](./assets/letters.png) 
+
+There is also an alert for the user to confirm uppercase letters and special characters, once all confirm() and prompt() methods are satisfied, a password is generated in the #password text area. 
+
+![Generated Password Screenshot](./assets/generated.png) 
 
 ## URL to Deployed Application:
 

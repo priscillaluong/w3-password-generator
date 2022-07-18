@@ -18,6 +18,13 @@ var randomLowercase = "";
 var randomUppercase = "";
 var randomSpecialChars = "";
 
+const randomFunc = {
+  number: getRandomNumbers,
+  lower: getRandomLowers,
+  upper: getRandomUppers,
+  special: getRandomSpecialChars
+};
+
 // Functions
 // Write password to the #password input
 function writePassword() {
@@ -27,7 +34,7 @@ function writePassword() {
   //check is pw length is between 8 and 129 chars
   while (pwLength < 8 || pwLength > 130) {
     pwLength = +window.prompt("Password must be at least 8 characters and no more than 128 characters. Please enter length of password: ");
-    return pwLength;
+    //return pwLength;
   };
   //console.log(pwLength);
   hasNumbers = window.confirm("Does the password include numbers?");
@@ -38,7 +45,7 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
   //passwordText.value = password;
 
-  passwordText.value = test(hasNumbers, hasLowercase, hasUppercase, hasSpecialChars, pwLength);
+  passwordText.value = generatePassword(hasNumbers, hasLowercase, hasUppercase, hasSpecialChars, pwLength);
 
 /*   var password = generatePassword(
     hasNumbers,
@@ -50,9 +57,8 @@ function writePassword() {
  */
 }
 
-//TEST FUNCTION
-
-function test (number, lower, upper, special, pwLength) {
+//GENERATE PASSWORD FUNCTION
+function generatePassword (number, lower, upper, special, pwLength) {
   // 1. Initialise pw variable
   // 2. Filter out user selection
   // 3. Loop over length, call generator functions
@@ -85,17 +91,8 @@ function test (number, lower, upper, special, pwLength) {
   return finalPassword;
 }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+// GENERATOR FUNCTIONS:
 
-randomFunc = {
-  number: getRandomNumbers,
-  lower: getRandomLowers,
-  upper: getRandomUppers,
-  special: getRandomSpecialChars
-};
-
-// Generator functions
 // get random numbers from string:
 /* function getRandomNumbers(x) {
   for (var i = 0; i <= x; i++) {
@@ -103,7 +100,8 @@ randomFunc = {
   }
   return randomNumbers;
 } */
-// one random number
+
+// Get ONE random number
 function getRandomNumbers() {
   randomNumbers = numbers.charAt(Math.floor(Math.random() * numbers.length));
   return randomNumbers;
@@ -116,12 +114,12 @@ function getRandomNumbers() {
   }
   return randomLowercase;
 } */
-//get one random lower:
+
+//get ONE random lower:
 function getRandomLowers() {
   randomLowercase = lowercase.charAt(Math.floor(Math.random() * lowercase.length));
   return randomLowercase;
 }
-
 
 // Get random uppers:
 /* function getRandomUppers(x) {
@@ -131,7 +129,7 @@ function getRandomLowers() {
   return randomUppercase;
 } */
 
-//get one random upper:
+//Get ONE random upper:
 function getRandomUppers() {
   randomUppercase = uppercase.charAt(Math.floor(Math.random() * uppercase.length));
   return randomUppercase;
@@ -145,14 +143,14 @@ function getRandomUppers() {
   return randomSpecialChars;
 }  */
 
-// Below returns ONE random special character
+// Below returns ONE random special character:
 function getRandomSpecialChars() {
   randomSpecialChars = specialChars.charAt(Math.floor(Math.random() * specialChars.length));
   return randomSpecialChars;
 }
 
-
-//When button is clicked, a series of prompts pop up for password criteria
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
 
 console.log(hasNumbers);
 console.log(hasLowercase);

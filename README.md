@@ -30,7 +30,7 @@ function getRandomNumbers() {
 } 
 ```
 
-* Worked on creating the windows dialog box pop-up, by using the .prompt() and .confirm() methods I was able to generate a value from the user input.
+* Worked on creating the windows pop-up dialog box, by using the .prompt() and .confirm() methods I was able to generate a value from the user input.
 
 ```
 function writePassword() {
@@ -99,7 +99,7 @@ Re-prompt if (pwLength < 8 || pwLength > 130):
 
 ![Application Letters Confirm Screenshot](./assets/letters.png) 
 
-There is also an alert for the user to confirm uppercase letters and special characters, once all confirm() and prompt() methods are satisfied, a password is generated in the #password text area. 
+N.B. Users are also asked to confirm uppercase letters and special characters, once all methods are satisfied, a password is generated in the #password text area. 
 
 ![Generated Password Screenshot](./assets/generated.png) 
 

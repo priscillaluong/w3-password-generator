@@ -14,40 +14,75 @@ Acceptance Criteria:
 
 ## How I approached the task:
 
-* Broke the task down into smaller tasks - analysed the starter code from which I understood that used to display the generated password in the password text area on your HTML.
+* Analysed the starter code from which I understood is used to display the generated password in the password text area of the HTML. 
 
-* worked by focusing on how to generate a random number / letter / special char. Listed under the GENERATOR FUNCIONS comment: 
-
-* Worked on creating the alerts on the windows dialog box. By using the .prompt() and .confirm() methods I was able to generate a value.
-
-* Used objects with key: value 
-
-* In between this, I ran a console.log at different parts to make sure I am getting the result I need.
+* Broke the task down into smaller chunks - started by focusing on how to generate a random number / letter / special char.
 
 ```
-/********************************
-* Content Section (Left) *
-*********************************/
-.content {
-    /*Positioning*/
-    width: 75%;
-    display: inline-block;
-    margin-left: 20px;
-}
+// GENERATOR FUNCTIONS:
+// Get ONE random number:
 
-.search-engine-optimization,
-.online-reputation-management,
-.social-media-marketing {
-    /*Positioning*/
-    margin-bottom: 20px;
-    padding: 50px;
-    height: 300px;
-    /*Styling*/
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    background-color: #0072bb;
-    color: #ffffff;
+var numbers = "0123456789";
+
+function getRandomNumbers() {
+  randomNumbers = numbers.charAt(Math.floor(Math.random() * numbers.length));
+  return randomNumbers;
+} 
+```
+
+* Worked on creating the windows dialog box pop-up, by using the .prompt() and .confirm() methods I was able to generate a value from the user input.
+
+```
+function writePassword() {
+  pwLength = +window.prompt("Length of password: ");
+
+  //check is pw length is between 8 and 129 chars
+
+  while (pwLength < 8 || pwLength > 130) {
+    pwLength = +window.prompt("Password must be at least 8 characters and no more than 128 characters. Please enter length of password: ");
+  };
+
+  hasNumbers = window.confirm("Does the password include numbers?");
+  hasLowercase = window.confirm("Does the password include lowercase letters?");
+...
 }
 ```
+
+* Created a **generatePassword()** funtion which filters out user selection, and a **for loop** to loop over **pwLength** and call the random generator functions **getRandomNumbers()**.
+
+```
+function generatePassword (number, lower, upper, special, pwLength) {
+  let generatedPassword = "";
+  const typesCount = number + lower + upper + special;
+  
+  // filter out user selection
+
+  const typesArr = [{number}, {lower}, {upper}, {special}].filter
+  (
+    item => Object.values(item)[0]
+  );
+
+  //if user values return false, we generate/return nothing
+
+  if(typesCount === 0) {
+    return "";
+  }
+
+  //loop over length and call random generator functions
+
+  for(let i = 0; i < pwLength; i += typesCount) {
+    typesArr.forEach(type => {
+      const funcName = Object.keys(type)[0];
+      generatedPassword += randomFunc[funcName]();
+    });
+  }
+  const finalPassword = generatedPassword.slice(0,pwLength);
+  return finalPassword;
+}
+```
+
+* In between these steps, I also ran **console.log()** to ensure I am getting the result required.
+
 ## Screenshot of Deployed Application:
 
 ![Deployed Application Screenshot](./assets/deployed_app.png) 
@@ -70,3 +105,6 @@ There is also an alert for the user to confirm uppercase letters and special cha
 
 [Click here](https://priscillaluong.github.io/week-one-challenge/) 
 
+### Final note:
+
+*Any feedback to improve code or areas where I could further implement best practice would be greatly appreciated* 😊

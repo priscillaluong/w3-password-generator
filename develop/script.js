@@ -1,5 +1,4 @@
 // Global variables
-// Assignment Code
 var generateBtn = document.querySelector("#generate");
 
 var numbers = "0123456789";
@@ -61,7 +60,7 @@ function writePassword() {
 function generatePassword (number, lower, upper, special, pwLength) {
   // 1. Initialise pw variable
   // 2. Filter out user selection
-  // 3. Loop over length, call generator functions
+  // 3. Loop over pwlength, call generator functions
   // 4. Add final password to password variable and return
   let generatedPassword = "";
   const typesCount = number + lower + upper + special;
@@ -91,7 +90,7 @@ function generatePassword (number, lower, upper, special, pwLength) {
   return finalPassword;
 }
 
-// GENERATOR FUNCTIONS:
+// RANDOM GENERATOR FUNCTIONS:
 
 // get random numbers from string:
 /* function getRandomNumbers(x) {

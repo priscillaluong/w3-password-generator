@@ -17,6 +17,8 @@ var randomLowercase = "";
 var randomUppercase = "";
 var randomSpecialChars = "";
 
+var possibleChars = "";
+
 // Functions
 // Write password to the #password input
 function writePassword() {
@@ -43,7 +45,17 @@ function writePassword() {
 
 //GENERATE PASSWORD FUNCTION
 function generatePassword () {
-  
+
+  console.log("I am here");
+  if (hasNumbers === false && hasLowercase === false && hasUppercase === false && hasSpecialChars === false) {
+    //alert("You need to select at least one character type. Try again!");
+    return "You need to select at least one character type. Try again!";
+  } 
+
+  if (hasNumbers) {
+    possibleChars += numbers;
+  }
+  console.log("possibleChars = ", possibleChars);
 }
 
 // RANDOM GENERATOR FUNCTIONS:

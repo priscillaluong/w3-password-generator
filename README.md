@@ -51,34 +51,38 @@ function writePassword() {
 * Created a **generatePassword()** funtion which filters out user selection, and a **for loop** to loop over **pwLength** and call the random generator functions **getRandomNumbers()**.
 
 ```
-function generatePassword (number, lower, upper, special, pwLength) {
-  let generatedPassword = "";
-  const typesCount = number + lower + upper + special;
-  
-  // filter out user selection
+function generatePassword () {
+  let password = "";
 
-  const typesArr = [{number}, {lower}, {upper}, {special}].filter
-  (
-    item => Object.values(item)[0]
-  );
+  if (hasNumbers === false && hasLowercase === false && hasUppercase === false && hasSpecialChars === false) {
+    alert("You need to select at least one character type. Please try again!");
+  } 
 
-  //if user values return false, we generate/return nothing
-
-  if(typesCount === 0) {
-    return "";
+  if (hasNumbers) {
+    //possibleChars += numbers;
+    possibleChars = possibleChars + numbers;
   }
 
-  //loop over length and call random generator functions
-
-  for(let i = 0; i < pwLength; i += typesCount) {
-    typesArr.forEach(type => {
-      const funcName = Object.keys(type)[0];
-      generatedPassword += randomFunc[funcName]();
-    });
+  if (hasLowercase) {
+    //possibleChars += numbers;
+    possibleChars = possibleChars + lowercase;
   }
-  const finalPassword = generatedPassword.slice(0,pwLength);
-  return finalPassword;
-}
+
+  if (hasUppercase) {
+    //possibleChars += numbers;
+    possibleChars = possibleChars + uppercase;
+  }
+
+  if (hasSpecialChars) {
+    //possibleChars += numbers;
+    possibleChars = possibleChars + specialChars;
+  }
+
+  for (var i = 0; i < pwLength; i++) {
+    password += possibleChars.charAt(Math.floor(Math.random() * possibleChars.length));
+  }
+
+  return password;
 ```
 
 * In between these steps, I also ran **console.log()** to ensure I am getting the result required.
@@ -99,7 +103,7 @@ Re-prompt if (pwLength < 8 || pwLength > 130):
 
 ![Application Letters Confirm Screenshot](./assets/letters.png) 
 
-n.b. Users are also asked to confirm uppercase letters and special characters, once all methods are satisfied, a password is generated in the #password text area. 
+n.b. Users are also asked to confirm uppercase letters and special characters, once all methods are satisfied, a password is generated in the #password text area. If no character types are confirmed, the user is alerted to retry.
 
 ![Generated Password Screenshot](./assets/generated.png) 
 

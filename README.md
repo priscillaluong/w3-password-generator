@@ -83,6 +83,7 @@ function generatePassword () {
   }
 
   return password;
+}
 ```
 
 * In between these steps, I also ran **console.log()** to ensure I am getting the result required.

@@ -48,7 +48,7 @@ function writePassword() {
 }
 ```
 
-* Created a **generatePassword()** funtion which filters out user selection, and a **for loop** to loop over **pwLength** and call the random generator functions **getRandomNumbers()**.
+* Created a **generatePassword()** funtion which filters out user selection, and a **for loop** to loop over **pwLength**.
 
 ```
 function generatePassword () {

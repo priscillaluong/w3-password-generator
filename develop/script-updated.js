@@ -53,7 +53,26 @@ function generatePassword () {
   } 
 
   if (hasNumbers) {
-    possibleChars += numbers;
+    //possibleChars += numbers;
+    possibleChars = possibleChars + numbers;
+  }
+  console.log("possibleChars = ", possibleChars);
+
+  if (hasLowercase) {
+    //possibleChars += numbers;
+    possibleChars = possibleChars + lowercase;
+  }
+  console.log("possibleChars = ", possibleChars);
+
+  if (hasUppercase) {
+    //possibleChars += numbers;
+    possibleChars = possibleChars + uppercase;
+  }
+  console.log("possibleChars = ", possibleChars);
+
+  if (hasSpecialChars) {
+    //possibleChars += numbers;
+    possibleChars = possibleChars + specialChars;
   }
   console.log("possibleChars = ", possibleChars);
 }

@@ -1,10 +1,10 @@
 // Global variables
 var generateBtn = document.querySelector("#generate");
 
-var numbers = "0123456789";
-var lowercase = "abcdefghijklmnopqrstuvwxyz";
-var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-var specialChars = "!'*+,-./:;<=>?@\^_";
+const numbers = "0123456789";
+const lowercase = "abcdefghijklmnopqrstuvwxyz";
+const uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const specialChars = "!'*+,-./:;<=>?@\^_";
 
 var hasNumbers = "";
 var hasLowercase = "";
